@@ -1,0 +1,8 @@
+{
+  "name": "@african-healthcare/appointment-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo appointment-service scaffold ready - no runtime code yet"
+  }
+}

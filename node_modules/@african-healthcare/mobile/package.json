@@ -1,0 +1,8 @@
+{
+  "name": "@african-healthcare/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo mobile scaffold ready - no runtime code yet"
+  }
+}

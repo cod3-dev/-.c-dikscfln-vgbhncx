@@ -1,0 +1,8 @@
+{
+  "name": "@african-healthcare/cost-estimation-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo cost-estimation-service scaffold ready - no runtime code yet"
+  }
+}

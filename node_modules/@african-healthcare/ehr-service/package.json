@@ -1,0 +1,8 @@
+{
+  "name": "@african-healthcare/ehr-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo ehr-service scaffold ready - no runtime code yet"
+  }
+}

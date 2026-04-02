@@ -1,0 +1,17 @@
+{
+  "name": "african-healthcare-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:backend": "npm run dev --workspace @african-healthcare/api-gateway --workspace @african-healthcare/triage-service --workspace @african-healthcare/facility-matching-service --workspace @african-healthcare/cost-estimation-service --workspace @african-healthcare/telemedicine-service --workspace @african-healthcare/ehr-service --workspace @african-healthcare/notification-service --workspace @african-healthcare/appointment-service",
+    "dev:frontend": "npm run dev --workspace @african-healthcare/web --workspace @african-healthcare/mobile --workspace @african-healthcare/ussd"
+  },
+  "workspaces": [
+    "backend/gateway/api-gateway",
+    "backend/services/*",
+    "frontend/web",
+    "frontend/mobile",
+    "frontend/ussd"
+  ]
+}
