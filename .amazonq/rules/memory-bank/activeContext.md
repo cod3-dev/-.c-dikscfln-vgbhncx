@@ -7,8 +7,9 @@ Project is in the **frontend-first phase**. The npm monorepo is bootstrapped and
 - npm workspaces monorepo configured at root (`package.json`) covering all backend services + frontend packages
 - `frontend/web` fully implemented: vanilla HTML/CSS/JS static site served by a custom Node.js HTTP server (`server.js`)
   - Brand name confirmed: **Afya CarePath**
-  - Sections: Hero, Services (Triage, Facility Matching, Cost Transparency, Telemedicine/EHR), Patient Journey (9 steps), Channels, Network, CTA
-  - Responsive design with dark green/accent theme, scroll-reveal animations, floating stat cards
+  - Sections: First-response hero board, numbered page selection, AI Triage, First Aid Hub, Facility Matching, Telemedicine, Cost and Payments, Appointments, Follow-Up, Low-Bandwidth Access, Notifications, EHR and Prescriptions, Care Network
+  - First Aid Hub includes emergency documentation, video placeholders, and a responder field for incident type, patient status, and first-response notes
+  - Responsive first-aid themed design with rose/red palette, modular panel layout, and scroll-reveal animations
   - Runs on `PORT` env var or default `3000`
 - `frontend/mobile` and `frontend/ussd` — package stubs only, no runtime code
 - All backend service packages (`api-gateway`, `triage-service`, `facility-matching-service`, `cost-estimation-service`, `ehr-service`, `telemedicine-service`, `notification-service`, `appointment-service`) — package stubs only
@@ -44,3 +45,4 @@ Backend implementation is the priority. Logical order:
 - Healthcare data compliance requirements may affect data residency choices
 - Inter-service latency must be managed for real-time triage + matching flows
 - Web frontend currently has no backend connection — all content is static placeholder copy
+- Low-bandwidth access, notifications, and first-aid note capture are presentational only in the web frontend for now

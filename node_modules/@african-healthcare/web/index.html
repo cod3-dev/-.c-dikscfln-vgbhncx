@@ -3,274 +3,378 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>African Healthcare Platform</title>
+    <title>CarePath First Response</title>
     <meta
       name="description"
-      content="Healthcare navigation platform for triage, telemedicine, matching, and cost transparency across web, mobile, and USSD."
+      content="A first-aid themed healthcare access board with dedicated spaces for AI triage, first-aid resources, telemedicine, follow-up, and the full care pipeline."
     />
     <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
   <body id="top">
     <div class="page-shell">
-      <div class="ambient ambient-left"></div>
-      <div class="ambient ambient-right"></div>
-
-      <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark"></span>
-          <div>
-            <p class="brand-kicker">Afya</p>
-            <h1>CarePath</h1>
-          </div>
-        </div>
-
-        <nav class="nav">
-          <a href="#services">Services</a>
-          <a href="#journey">Journey</a>
-          <a href="#channels">Channels</a>
-          <a href="#network">Network</a>
-        </nav>
-
-        <a class="pill-button small" href="#cta">Book Care</a>
+      <header class="masthead reveal">
+        <p>First-aid inspired healthcare workspace for patients, providers, and care coordinators</p>
+        <p class="masthead-right">Every core module has its own access space in one connected response board</p>
       </header>
 
-      <main class="main-grid">
-        <section class="hero panel reveal">
-          <div class="eyebrow">Healthcare guidance for every connection level</div>
-          <div class="hero-layout">
-            <div class="hero-copy">
-              <h2>
-                Your
-                <span>health-first</span>
-                sprint team for symptom-to-care decisions
-              </h2>
-              <p class="hero-text">
-                Patients can describe symptoms through web, mobile, or USSD and
-                instantly move through triage, facility matching, cost
-                visibility, telemedicine, and follow-up care with confidence.
+      <main class="poster-grid">
+        <section class="panel hero-card reveal">
+          <div class="hero-ribbons">
+            <span>Web</span>
+            <span>Mobile</span>
+            <span>USSD</span>
+            <span>24/7 triage</span>
+            <span>Alerts</span>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="medical-badge">
+              <div class="medical-badge-core"></div>
+              <div class="medical-cross medical-cross-horizontal"></div>
+              <div class="medical-cross medical-cross-vertical"></div>
+              <div class="medical-ring ring-one"></div>
+              <div class="medical-ring ring-two"></div>
+            </div>
+          </div>
+
+          <div class="hero-copy">
+            <p class="eyebrow">Care Navigation Platform</p>
+            <h1>CAREPATH FIRST RESPONSE</h1>
+            <p class="hero-text">
+              A modular patient-access board where symptom intake, AI triage,
+              first-aid capture, telemedicine, cost visibility, appointment
+              booking, follow-up, low-bandwidth access, notifications, and
+              records live in distinct spaces but move as one care journey.
+            </p>
+
+            <div class="hero-actions">
+              <a class="pill-button" href="#ai-triage">Open AI Triage</a>
+              <a class="ghost-button" href="#first-aid">View First Aid Hub</a>
+            </div>
+
+            <nav class="page-selection" aria-label="Page selection">
+              <a href="#ai-triage"><span>01</span>AI Triage</a>
+              <a href="#first-aid"><span>02</span>First Aid Hub</a>
+              <a href="#matching"><span>03</span>Facility Matching</a>
+              <a href="#telemedicine"><span>04</span>Telemedicine</a>
+              <a href="#cost"><span>05</span>Cost and Payments</a>
+              <a href="#appointments"><span>06</span>Appointments</a>
+              <a href="#follow-up"><span>07</span>Follow-Up</a>
+              <a href="#access"><span>08</span>Low-Bandwidth Access</a>
+              <a href="#notifications"><span>09</span>Notifications</a>
+              <a href="#ehr"><span>10</span>EHR and Prescriptions</a>
+              <a href="#network"><span>11</span>Care Network</a>
+            </nav>
+          </div>
+        </section>
+
+        <article class="panel module-card triage-card reveal" id="ai-triage">
+          <p class="module-kicker">01 AI Triage</p>
+          <h2>Describe symptoms and get urgency guidance fast</h2>
+          <p>
+            Patients enter symptoms and receive likely conditions, urgency level,
+            and next-step recommendations.
+          </p>
+          <a class="module-link" href="#top">Access AI Triage</a>
+        </article>
+
+        <article class="panel module-card first-aid-card reveal" id="first-aid">
+          <div class="first-aid-shell">
+            <div class="first-aid-header">
+              <div>
+                <p class="module-kicker">02 First Aid Hub</p>
+                <h2>Emergency guidance, documentation, and video space in one module</h2>
+              </div>
+              <p class="first-aid-intro">
+                This workspace keeps everything for first response inside one
+                environment so the user does not leave the hub to explore key
+                accident guidance.
               </p>
-
-              <div class="hero-actions">
-                <a class="pill-button" href="#journey">Start Triage Flow</a>
-                <a class="ghost-button" href="#services">Explore Services</a>
-              </div>
-
-              <div class="stats-row">
-                <article class="mini-stat">
-                  <span>24/7</span>
-                  <p>AI-guided symptom intake</p>
-                </article>
-                <article class="mini-stat">
-                  <span>3</span>
-                  <p>Access channels: web, mobile, USSD</p>
-                </article>
-                <article class="mini-stat">
-                  <span>1</span>
-                  <p>Connected journey from symptoms to follow-up</p>
-                </article>
-              </div>
             </div>
 
-            <div class="hero-visual">
-              <div class="bio-orb">
-                <div class="orb-core"></div>
-                <div class="orb-ring orb-ring-one"></div>
-                <div class="orb-ring orb-ring-two"></div>
-                <div class="pulse-line pulse-one"></div>
-                <div class="pulse-line pulse-two"></div>
+            <div class="module-actions">
+              <a class="module-link" href="#first-aid-videos">Open Video Spaces</a>
+              <a class="module-link secondary" href="#first-aid-docs">Read Documentation</a>
+            </div>
+
+            <div class="first-aid-field">
+              <div class="field-copy">
+                <p class="module-kicker">First Aid Field</p>
+                <h3>Capture the emergency before routing the patient onward</h3>
+                <p>
+                  Responders can log the incident, record the patient state, and
+                  pass the details forward into triage, telemedicine, or urgent
+                  referral without losing context.
+                </p>
               </div>
 
-              <article class="floating-card card-a">
-                <p class="floating-label">Triage Result</p>
-                <strong>Moderate urgency</strong>
-                <span>Possible respiratory infection</span>
+              <form class="aid-form">
+                <label>
+                  <span>Incident type</span>
+                  <select name="incident-type">
+                    <option>Cuts or bleeding</option>
+                    <option>Burn or scald</option>
+                    <option>Fall or fracture</option>
+                    <option>Choking</option>
+                    <option>Road accident</option>
+                    <option>Other emergency</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Patient status</span>
+                  <select name="patient-status">
+                    <option>Conscious and responsive</option>
+                    <option>Dizzy or disoriented</option>
+                    <option>Severe pain</option>
+                    <option>Difficulty breathing</option>
+                    <option>Unresponsive</option>
+                  </select>
+                </label>
+
+                <label class="aid-form-wide">
+                  <span>First response notes</span>
+                  <textarea
+                    name="first-response-notes"
+                    rows="4"
+                    placeholder="Describe what happened, what first aid was given, and what the next care team should know."
+                  ></textarea>
+                </label>
+
+                <button class="pill-button" type="button">Save First Aid Notes</button>
+              </form>
+            </div>
+
+            <div class="first-aid-quicklinks">
+              <a href="#case-bleeding">Cuts and bleeding</a>
+              <a href="#case-burns">Burns and scalds</a>
+              <a href="#case-falls">Falls and fractures</a>
+              <a href="#case-choking">Choking</a>
+              <a href="#case-road">Road accidents</a>
+            </div>
+
+            <div class="first-aid-grid" id="first-aid-docs">
+              <article class="aid-case" id="case-bleeding">
+                <div class="aid-copy">
+                  <p class="module-kicker">Case 01</p>
+                  <h3>Cuts and heavy bleeding</h3>
+                  <p>
+                    Use this when a person has a deep cut, visible bleeding, or
+                    a wound that may not stop on its own.
+                  </p>
+                  <ul class="aid-steps">
+                    <li>Apply firm direct pressure with a clean cloth or bandage.</li>
+                    <li>Raise the injured area if possible and safe.</li>
+                    <li>Keep pressure on until bleeding slows or help arrives.</li>
+                    <li>Seek urgent care for severe bleeding or large wounds.</li>
+                  </ul>
+                </div>
+                <div class="video-slot" id="first-aid-videos">
+                  <span>Video Space</span>
+                  <strong>Bleeding control tutorial placeholder</strong>
+                </div>
               </article>
 
-              <article class="floating-card card-b">
-                <p class="floating-label">Nearest Match</p>
-                <strong>8 min away</strong>
-                <span>County clinic with lab access</span>
+              <article class="aid-case" id="case-burns">
+                <div class="aid-copy">
+                  <p class="module-kicker">Case 02</p>
+                  <h3>Burns and scalds</h3>
+                  <p>
+                    For injuries caused by hot liquids, open flame, hot metal,
+                    or electrical contact.
+                  </p>
+                  <ul class="aid-steps">
+                    <li>Cool the burn under clean running water for at least 20 minutes.</li>
+                    <li>Remove tight items near the burn before swelling begins.</li>
+                    <li>Cover loosely with a clean non-stick dressing or cloth.</li>
+                    <li>Do not apply butter, oil, or ice directly to the burn.</li>
+                  </ul>
+                </div>
+                <div class="video-slot">
+                  <span>Video Space</span>
+                  <strong>Burn cooling and dressing walkthrough placeholder</strong>
+                </div>
               </article>
 
-              <article class="floating-card card-c">
-                <p class="floating-label">Estimated Cost</p>
-                <strong>KES 1,800</strong>
-                <span>M-Pesa and installment options</span>
+              <article class="aid-case" id="case-falls">
+                <div class="aid-copy">
+                  <p class="module-kicker">Case 03</p>
+                  <h3>Falls, sprains, and suspected fractures</h3>
+                  <p>
+                    Use this for slips, falls, twisted joints, or pain with
+                    swelling and limited movement.
+                  </p>
+                  <ul class="aid-steps">
+                    <li>Keep the injured person still and support the injured area.</li>
+                    <li>Apply a wrapped cold pack to reduce swelling.</li>
+                    <li>Do not force a limb back into place or ask them to walk.</li>
+                    <li>Get urgent care if there is severe pain, deformity, or head impact.</li>
+                  </ul>
+                </div>
+                <div class="video-slot">
+                  <span>Video Space</span>
+                  <strong>Fracture support and safe immobilization placeholder</strong>
+                </div>
+              </article>
+
+              <article class="aid-case" id="case-choking">
+                <div class="aid-copy">
+                  <p class="module-kicker">Case 04</p>
+                  <h3>Choking and blocked airway</h3>
+                  <p>
+                    For adults or children who cannot speak, cough, or breathe
+                    properly because something is blocking the airway.
+                  </p>
+                  <ul class="aid-steps">
+                    <li>Encourage coughing if the person can still breathe.</li>
+                    <li>Give back blows and abdominal thrusts when airway blockage is severe.</li>
+                    <li>Call emergency help immediately if breathing stops.</li>
+                    <li>Start CPR if the person becomes unresponsive and is not breathing.</li>
+                  </ul>
+                </div>
+                <div class="video-slot">
+                  <span>Video Space</span>
+                  <strong>Choking response demonstration placeholder</strong>
+                </div>
+              </article>
+
+              <article class="aid-case" id="case-road">
+                <div class="aid-copy">
+                  <p class="module-kicker">Case 05</p>
+                  <h3>Road traffic accidents and head injury</h3>
+                  <p>
+                    For crashes, collisions, or any situation where neck, spine,
+                    or head trauma may be present.
+                  </p>
+                  <ul class="aid-steps">
+                    <li>Call emergency services and keep the person still.</li>
+                    <li>Do not remove helmets unless breathing is blocked and you must intervene.</li>
+                    <li>Control visible bleeding with gentle direct pressure if safe.</li>
+                    <li>Monitor breathing and consciousness until trained help arrives.</li>
+                  </ul>
+                </div>
+                <div class="video-slot">
+                  <span>Video Space</span>
+                  <strong>Road accident first response placeholder</strong>
+                </div>
               </article>
             </div>
           </div>
-        </section>
+        </article>
 
-        <section class="impact panel panel-split reveal">
-          <div class="impact-copy">
-            <p class="eyebrow">Built for clarity under pressure</p>
-            <h3>
-              We guide patients through the healthcare system instead of asking
-              them to decode it alone.
-            </h3>
-          </div>
-          <div class="impact-metric">
-            <span>120+</span>
-            <p>care pathways modeled across triage, telemedicine, referrals, and follow-up workflows.</p>
-          </div>
-        </section>
+        <article class="panel module-card matching-card reveal" id="matching">
+          <p class="module-kicker">03 Facility Matching</p>
+          <h2>Find the right hospital or clinician nearby</h2>
+          <p>
+            Match patients to capability, availability, distance, and required
+            level of care.
+          </p>
+          <a class="module-link" href="#top">Find Care Options</a>
+        </article>
 
-        <section id="services" class="services reveal">
-          <article class="service-card panel">
-            <p class="card-index">01</p>
-            <h3>Triage Intelligence</h3>
-            <p>
-              Symptom capture translates into likely conditions, urgency scores,
-              and a next-best action for the patient.
-            </p>
-          </article>
+        <article class="panel module-card telemedicine-card reveal" id="telemedicine">
+          <p class="module-kicker">04 Telemedicine</p>
+          <h2>Start a virtual consultation when travel can wait</h2>
+          <p>
+            Give users a direct route into chat or video consultations for
+            non-emergency cases.
+          </p>
+          <a class="module-link" href="#top">Start Teleconsult</a>
+        </article>
 
-          <article class="service-card panel">
-            <p class="card-index">02</p>
-            <h3>Facility Matching</h3>
-            <p>
-              Finds the nearest hospital or doctor with the right capability,
-              availability, and escalation level.
-            </p>
-          </article>
+        <article class="panel module-card cost-card reveal" id="cost">
+          <p class="module-kicker">05 Cost and Payments</p>
+          <h2>See cost expectations before committing to care</h2>
+          <p>
+            Estimate treatment expense, surface payment options, and keep
+            M-Pesa ready as part of the decision.
+          </p>
+          <a class="module-link" href="#top">Check Estimated Cost</a>
+        </article>
 
-          <article class="service-card panel">
-            <p class="card-index">03</p>
-            <h3>Cost Transparency</h3>
-            <p>
-              Shows predicted cost ranges early, plus payment options including
-              M-Pesa for practical decision-making.
-            </p>
-          </article>
+        <article class="panel module-card appointment-card reveal" id="appointments">
+          <p class="module-kicker">06 Appointments</p>
+          <h2>Book the next step without leaving the platform</h2>
+          <p>
+            Schedule in-person visits or specialist slots after triage and
+            matching are complete.
+          </p>
+          <a class="module-link" href="#top">Book Appointment</a>
+        </article>
 
-          <article class="service-card panel">
-            <p class="card-index">04</p>
-            <h3>Telemedicine and EHR</h3>
-            <p>
-              Supports remote consultations while keeping every diagnosis,
-              prescription, and note captured in the patient record.
-            </p>
-          </article>
-        </section>
+        <article class="panel module-card followup-card reveal" id="follow-up">
+          <p class="module-kicker">07 Follow-Up</p>
+          <h2>Keep recovery, reminders, and review visits in one place</h2>
+          <p>
+            Follow-up gets its own access space for check-ins, medication
+            reminders, care plans, and post-visit monitoring.
+          </p>
+          <a class="module-link" href="#top">Open Follow-Up Care</a>
+        </article>
 
-        <section id="journey" class="journey panel reveal">
-          <div class="journey-header">
-            <p class="eyebrow">Patient Journey</p>
-            <h3>One coordinated pipeline from symptoms to follow-up care</h3>
-          </div>
+        <article class="panel module-card access-card reveal" id="access">
+          <p class="module-kicker">08 Low-Bandwidth Access</p>
+          <h2>Keep care available through USSD, SMS, and lightweight mobile flows</h2>
+          <p>
+            The platform supports rural and unstable-network journeys through
+            simple channels built for low connectivity and time-limited sessions.
+          </p>
+          <a class="module-link" href="#top">Open Access Channels</a>
+        </article>
 
-          <div class="journey-grid">
-            <article class="journey-step">
-              <span>1</span>
-              <h4>Symptoms Entered</h4>
-              <p>User starts on mobile, web, or USSD.</p>
-            </article>
-            <article class="journey-step">
-              <span>2</span>
-              <h4>Gateway Routes</h4>
-              <p>Secure routing, auth, and traffic control begin the flow.</p>
-            </article>
-            <article class="journey-step">
-              <span>3</span>
-              <h4>Triage Analyzes</h4>
-              <p>Likely conditions and urgency are generated.</p>
-            </article>
-            <article class="journey-step">
-              <span>4</span>
-              <h4>Facility Match</h4>
-              <p>The best-fit hospital or clinician is selected.</p>
-            </article>
-            <article class="journey-step">
-              <span>5</span>
-              <h4>Cost Estimated</h4>
-              <p>Expected cost and payment options are surfaced early.</p>
-            </article>
-            <article class="journey-step">
-              <span>6</span>
-              <h4>User Notified</h4>
-              <p>SMS, push, or email explains the next recommended action.</p>
-            </article>
-            <article class="journey-step">
-              <span>7</span>
-              <h4>Telemedicine Option</h4>
-              <p>Immediate virtual consultation is available when appropriate.</p>
-            </article>
-            <article class="journey-step">
-              <span>8</span>
-              <h4>In-Person Visit</h4>
-              <p>The patient reaches the right facility with less friction.</p>
-            </article>
-            <article class="journey-step">
-              <span>9</span>
-              <h4>EHR Updated</h4>
-              <p>Consultation, diagnosis, and prescriptions stay connected.</p>
-            </article>
-          </div>
-        </section>
+        <article class="panel module-card notification-card reveal" id="notifications">
+          <p class="module-kicker">09 Notifications</p>
+          <h2>Send reminders, booking updates, and urgent care alerts</h2>
+          <p>
+            SMS, push, and email keep patients, providers, and facilities aligned
+            across booking, consultation, referral, and follow-up.
+          </p>
+          <a class="module-link" href="#top">View Alerts and Reminders</a>
+        </article>
 
-        <section id="channels" class="channels reveal">
-          <article class="channel-feature panel wide">
-            <p class="eyebrow">Access Layer</p>
-            <h3>Designed for cities, towns, and low-connectivity regions</h3>
-            <p>
-              The interface strategy supports smartphones, desktop browsers, and
-              USSD journeys so care discovery remains available beyond always-on
-              internet environments.
-            </p>
-          </article>
+        <article class="panel module-card records-card reveal" id="ehr">
+          <p class="module-kicker">10 EHR and Prescriptions</p>
+          <h2>Capture consultations, diagnoses, and treatment history</h2>
+          <p>
+            Maintain continuity across providers by keeping health records and
+            prescriptions connected.
+          </p>
+          <a class="module-link" href="#top">Open Patient Records</a>
+        </article>
 
-          <article class="channel-card panel">
-            <h4>Web Portal</h4>
-            <p>Rich dashboards, appointment flows, and longitudinal care history.</p>
-          </article>
-          <article class="channel-card panel">
-            <h4>Mobile App</h4>
-            <p>Fast symptom intake, teleconsult access, and medication reminders.</p>
-          </article>
-          <article class="channel-card panel">
-            <h4>USSD and SMS</h4>
-            <p>Essential triage and routing for low-bandwidth and feature-phone users.</p>
-          </article>
-        </section>
-
-        <section id="network" class="network panel reveal">
-          <div class="network-copy">
-            <p class="eyebrow">Connected Care Network</p>
-            <h3>Hospitals, labs, pharmacies, and payments move in sync</h3>
-            <p>
-              Integrations keep referrals, lab requests, prescription fulfillment,
-              and payment continuity working as one patient experience.
-            </p>
-          </div>
-
-          <div class="network-grid">
-            <article>
-              <strong>Hospitals</strong>
-              <span>Capabilities, schedules, and referral continuity</span>
-            </article>
-            <article>
-              <strong>Labs</strong>
-              <span>Diagnostics connected to clinical decisions</span>
-            </article>
-            <article>
-              <strong>Pharmacies</strong>
-              <span>Prescription visibility and medication follow-through</span>
-            </article>
-            <article>
-              <strong>M-Pesa</strong>
-              <span>Familiar payments aligned with healthcare affordability</span>
-            </article>
-          </div>
-        </section>
-
-        <section id="cta" class="cta panel reveal">
-          <div>
-            <p class="eyebrow">Ready To Build</p>
-            <h3>A frontend direction that already matches the platform story</h3>
-          </div>
-          <a class="pill-button" href="#top">Launch Patient Experience</a>
-        </section>
+        <article class="panel module-card network-card reveal" id="network">
+          <p class="module-kicker">11 Care Network</p>
+          <h2>Labs, pharmacies, hospitals, and alerts stay synchronized</h2>
+          <p>
+            Integrations support referrals, diagnostics, prescription
+            fulfillment, and notifications across the full journey.
+          </p>
+          <a class="module-link" href="#top">View Connected Services</a>
+        </article>
       </main>
+
+      <section class="panel spaces-board reveal">
+        <div class="spaces-copy">
+          <p class="eyebrow">Core Access Spaces</p>
+          <h2>Every major product capability is presented as its own module</h2>
+        </div>
+
+        <div class="spaces-list">
+          <a href="#ai-triage">AI triage</a>
+          <a href="#first-aid">First aid field and guidance</a>
+          <a href="#first-aid">First aid videos and docs</a>
+          <a href="#matching">Facility matching</a>
+          <a href="#telemedicine">Telemedicine</a>
+          <a href="#cost">Cost and M-Pesa</a>
+          <a href="#appointments">Appointments</a>
+          <a href="#follow-up">Follow-up care</a>
+          <a href="#access">USSD and SMS access</a>
+          <a href="#notifications">Notifications and reminders</a>
+          <a href="#ehr">EHR and prescriptions</a>
+          <a href="#network">Labs, pharmacies, notifications</a>
+        </div>
+      </section>
+
     </div>
 
     <script src="/src/app/main.js"></script>
