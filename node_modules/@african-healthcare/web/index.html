@@ -6,375 +6,395 @@
     <title>CarePath First Response</title>
     <meta
       name="description"
-      content="A first-aid themed healthcare access board with dedicated spaces for AI triage, first-aid resources, telemedicine, follow-up, and the full care pipeline."
+      content="A first-aid healthcare landing page with a dark reference-inspired layout, a functional theme toggle, and rapid access to triage, first aid, facility matching, and telemedicine."
     />
     <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
   <body id="top">
     <div class="page-shell">
-      <header class="masthead reveal">
-        <p>First-aid inspired healthcare workspace for patients, providers, and care coordinators</p>
-        <p class="masthead-right">Every core module has its own access space in one connected response board</p>
+      <div class="ambient ambient-left" aria-hidden="true"></div>
+      <div class="ambient ambient-right" aria-hidden="true"></div>
+
+      <header class="site-header reveal">
+        <a class="brand" href="#top" aria-label="CarePath home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            <strong>CAREPATH</strong>
+            <span>FIRST RESPONSE</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#overview">About</a>
+          <a href="#mission">Response</a>
+          <a href="#steps">Pathway</a>
+          <a href="#console">Console</a>
+          <a href="#network">Support</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="true"
+            aria-label="Enable light mode"
+          >
+            Light Mode
+          </button>
+          <a class="nav-badge" href="#console">Emergency Live</a>
+        </div>
       </header>
 
-      <main class="poster-grid">
-        <section class="panel hero-card reveal">
-          <div class="hero-ribbons">
-            <span>Web</span>
-            <span>Mobile</span>
-            <span>USSD</span>
-            <span>24/7 triage</span>
-            <span>Alerts</span>
-          </div>
-
-          <div class="hero-visual" aria-hidden="true">
-            <div class="medical-badge">
-              <div class="medical-badge-core"></div>
-              <div class="medical-cross medical-cross-horizontal"></div>
-              <div class="medical-cross medical-cross-vertical"></div>
-              <div class="medical-ring ring-one"></div>
-              <div class="medical-ring ring-two"></div>
-            </div>
-          </div>
-
+      <main class="page-layout">
+        <section class="hero-section reveal" id="overview">
           <div class="hero-copy">
-            <p class="eyebrow">Care Navigation Platform</p>
-            <h1>CAREPATH FIRST RESPONSE</h1>
+            <p class="eyebrow">Emergency Care Layer</p>
+            <h1>STABILIZE THE CARE FLOW</h1>
             <p class="hero-text">
-              A modular patient-access board where symptom intake, AI triage,
-              first-aid capture, telemedicine, cost visibility, appointment
-              booking, follow-up, low-bandwidth access, notifications, and
-              records live in distinct spaces but move as one care journey.
+              CarePath keeps AI triage, first aid guidance, facility matching,
+              telemedicine, cost visibility, and follow-up in one controlled
+              response view so the handoff from first report to treatment feels
+              fast, calm, and connected.
             </p>
 
             <div class="hero-actions">
-              <a class="pill-button" href="#ai-triage">Open AI Triage</a>
-              <a class="ghost-button" href="#first-aid">View First Aid Hub</a>
+              <a class="primary-button" href="#console">Get Started</a>
+              <a class="ghost-button" href="#steps">View Flow</a>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="hero-visual" aria-hidden="true">
+              <div class="orbital-glow"></div>
+              <div class="orbital-track orbital-track-a"></div>
+              <div class="orbital-track orbital-track-b"></div>
+              <div class="orbital-grid">
+                <div class="orbital-core"></div>
+                <div class="orbital-shadow"></div>
+              </div>
+              <div class="hero-tag hero-tag-top">
+                <span>AI triage</span>
+                <strong>Urgency routing stays visible</strong>
+              </div>
+              <div class="hero-tag hero-tag-bottom">
+                <span>First response</span>
+                <strong>Facility matching and telemedicine stay linked</strong>
+              </div>
             </div>
 
-            <nav class="page-selection" aria-label="Page selection">
-              <a href="#ai-triage"><span>01</span>AI Triage</a>
-              <a href="#first-aid"><span>02</span>First Aid Hub</a>
-              <a href="#matching"><span>03</span>Facility Matching</a>
-              <a href="#telemedicine"><span>04</span>Telemedicine</a>
-              <a href="#cost"><span>05</span>Cost and Payments</a>
-              <a href="#appointments"><span>06</span>Appointments</a>
-              <a href="#follow-up"><span>07</span>Follow-Up</a>
-              <a href="#access"><span>08</span>Low-Bandwidth Access</a>
-              <a href="#notifications"><span>09</span>Notifications</a>
-              <a href="#ehr"><span>10</span>EHR and Prescriptions</a>
-              <a href="#network"><span>11</span>Care Network</a>
-            </nav>
+            <aside class="hero-panel hover-tilt">
+              <p class="panel-kicker">Live Routing</p>
+              <h2>1,248 active care handoffs</h2>
+              <div class="panel-stats">
+                <article>
+                  <strong>94%</strong>
+                  <span>Triage ready</span>
+                </article>
+                <article>
+                  <strong>12 min</strong>
+                  <span>Average match time</span>
+                </article>
+                <article>
+                  <strong>6 min</strong>
+                  <span>Telemedicine wait</span>
+                </article>
+              </div>
+              <div class="progress-stack" aria-hidden="true">
+                <div class="progress-row">
+                  <span>Urgent cases</span>
+                  <div class="progress-bar"><i style="width: 78%"></i></div>
+                </div>
+                <div class="progress-row">
+                  <span>Facility routing</span>
+                  <div class="progress-bar"><i style="width: 65%"></i></div>
+                </div>
+                <div class="progress-row">
+                  <span>Telemedicine lane</span>
+                  <div class="progress-bar"><i style="width: 82%"></i></div>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 
-        <article class="panel module-card triage-card reveal" id="ai-triage">
-          <p class="module-kicker">01 AI Triage</p>
-          <h2>Describe symptoms and get urgency guidance fast</h2>
-          <p>
-            Patients enter symptoms and receive likely conditions, urgency level,
-            and next-step recommendations.
-          </p>
-          <a class="module-link" href="#top">Access AI Triage</a>
-        </article>
+        <section class="stats-strip reveal" aria-label="Core care modules">
+          <article class="stat-card hover-tilt" id="ai-triage">
+            <div class="stat-icon icon-triage" aria-hidden="true"></div>
+            <p class="stat-kicker">01</p>
+            <h2>AI TRIAGE</h2>
+            <strong>24/7</strong>
+            <p>Symptoms, urgency scoring, and next-step recommendations in minutes.</p>
+          </article>
 
-        <article class="panel module-card first-aid-card reveal" id="first-aid">
-          <div class="first-aid-shell">
-            <div class="first-aid-header">
-              <div>
-                <p class="module-kicker">02 First Aid Hub</p>
-                <h2>Emergency guidance, documentation, and video space in one module</h2>
+          <article class="stat-card hover-tilt" id="first-aid">
+            <div class="stat-icon icon-first-aid" aria-hidden="true"></div>
+            <p class="stat-kicker">02</p>
+            <h2>FIRST AID HUB</h2>
+            <strong>5 Core Cases</strong>
+            <p>Guidance for bleeding, burns, fractures, choking, and road injury response.</p>
+          </article>
+
+          <article class="stat-card hover-tilt" id="telemedicine-highlight">
+            <div class="stat-icon icon-telemedicine" aria-hidden="true"></div>
+            <p class="stat-kicker">04</p>
+            <h2>TELEMEDICINE</h2>
+            <strong>6 MIN</strong>
+            <p>Remote consult lanes for stable cases before travel becomes necessary.</p>
+          </article>
+        </section>
+
+        <section class="mission-section reveal" id="mission">
+          <div class="mission-copy">
+            <p class="eyebrow">Our Response</p>
+            <h2>FIRST AID CONTROL</h2>
+            <p>
+              The full experience is built to reduce panic and cut repeat work.
+              First responders, clinicians, and coordinators move in one chain,
+              carrying the same patient context from the first note to facility
+              referral, teleconsult, payment prep, and record capture.
+            </p>
+            <div class="mission-actions">
+              <a class="primary-button" href="#steps">View All</a>
+              <a class="ghost-button" href="#network">Support Grid</a>
+            </div>
+          </div>
+
+          <div class="mission-screen hover-tilt" aria-hidden="true">
+            <div class="screen-shell">
+              <div class="screen-window screen-main">
+                <span>Facility Matching</span>
+                <strong>Capabilities, distance, and wait time aligned</strong>
               </div>
-              <p class="first-aid-intro">
-                This workspace keeps everything for first response inside one
-                environment so the user does not leave the hub to explore key
-                accident guidance.
-              </p>
+              <div class="screen-stack">
+                <div class="screen-window">
+                  <span>Cost Visibility</span>
+                  <strong>M-Pesa ready estimates</strong>
+                </div>
+                <div class="screen-window">
+                  <span>Follow-Up</span>
+                  <strong>Recovery and reminders remain tracked</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="steps-section reveal" id="steps">
+          <div class="section-heading">
+            <p class="eyebrow">Steps To Care</p>
+            <h2>Move patients through one clean emergency pathway</h2>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card hover-tilt">
+              <div class="step-icon" aria-hidden="true"></div>
+              <p class="step-number">01</p>
+              <h3>Report Symptoms</h3>
+              <p>Capture the first complaint through web, mobile, or lightweight access channels.</p>
+            </article>
+
+            <article class="step-card hover-tilt">
+              <div class="step-icon" aria-hidden="true"></div>
+              <p class="step-number">02</p>
+              <h3>Log First Aid</h3>
+              <p>Store the emergency details, responder notes, and stabilization guidance early.</p>
+            </article>
+
+            <article class="step-card hover-tilt">
+              <div class="step-icon" aria-hidden="true"></div>
+              <p class="step-number">03</p>
+              <h3>Match Facility</h3>
+              <p>Route by urgency, capability, travel time, and live care availability.</p>
+            </article>
+
+            <article class="step-card hover-tilt">
+              <div class="step-icon" aria-hidden="true"></div>
+              <p class="step-number">04</p>
+              <h3>Connect Care</h3>
+              <p>Launch telemedicine or in-person referral without losing the case context.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="console-section reveal" id="console">
+          <div class="console-side">
+            <div class="console-visual" aria-hidden="true">
+              <div class="console-orb"></div>
             </div>
 
-            <div class="module-actions">
-              <a class="module-link" href="#first-aid-videos">Open Video Spaces</a>
-              <a class="module-link secondary" href="#first-aid-docs">Read Documentation</a>
-            </div>
-
-            <div class="first-aid-field">
-              <div class="field-copy">
-                <p class="module-kicker">First Aid Field</p>
-                <h3>Capture the emergency before routing the patient onward</h3>
-                <p>
-                  Responders can log the incident, record the patient state, and
-                  pass the details forward into triage, telemedicine, or urgent
-                  referral without losing context.
-                </p>
+            <article class="countdown-card hover-tilt">
+              <div class="count-grid">
+                <div>
+                  <span>Next teleconsult</span>
+                  <strong>06</strong>
+                </div>
+                <div>
+                  <span>Matched centers</span>
+                  <strong>22</strong>
+                </div>
+                <div>
+                  <span>Failed handoffs</span>
+                  <strong>0</strong>
+                </div>
+                <div>
+                  <span>Care alerts</span>
+                  <strong>45</strong>
+                </div>
               </div>
+              <p>Response desk remains active across triage, referral, and follow-up care.</p>
+            </article>
+          </div>
 
-              <form class="aid-form">
+          <div class="console-stack">
+            <article class="console-card hover-tilt">
+              <p class="panel-kicker">02 First Aid Hub</p>
+              <h3>Capture the incident before handoff</h3>
+              <form class="console-form">
                 <label>
-                  <span>Incident type</span>
+                  <span>Incident</span>
                   <select name="incident-type">
                     <option>Cuts or bleeding</option>
                     <option>Burn or scald</option>
                     <option>Fall or fracture</option>
                     <option>Choking</option>
                     <option>Road accident</option>
-                    <option>Other emergency</option>
                   </select>
                 </label>
-
                 <label>
-                  <span>Patient status</span>
+                  <span>Status</span>
                   <select name="patient-status">
                     <option>Conscious and responsive</option>
-                    <option>Dizzy or disoriented</option>
-                    <option>Severe pain</option>
                     <option>Difficulty breathing</option>
+                    <option>Severe pain</option>
                     <option>Unresponsive</option>
                   </select>
                 </label>
-
-                <label class="aid-form-wide">
-                  <span>First response notes</span>
-                  <textarea
-                    name="first-response-notes"
-                    rows="4"
-                    placeholder="Describe what happened, what first aid was given, and what the next care team should know."
-                  ></textarea>
-                </label>
-
-                <button class="pill-button" type="button">Save First Aid Notes</button>
+                <button class="primary-button small-button" type="button">Save Notes</button>
               </form>
-            </div>
+            </article>
 
-            <div class="first-aid-quicklinks">
-              <a href="#case-bleeding">Cuts and bleeding</a>
-              <a href="#case-burns">Burns and scalds</a>
-              <a href="#case-falls">Falls and fractures</a>
-              <a href="#case-choking">Choking</a>
-              <a href="#case-road">Road accidents</a>
-            </div>
+            <article class="console-card hover-tilt" id="matching">
+              <p class="panel-kicker">03 Facility Matching</p>
+              <h3>Match the patient to the best-fit care point</h3>
+              <form class="console-form">
+                <label>
+                  <span>Location</span>
+                  <input type="text" name="location" placeholder="Town, estate, or landmark" />
+                </label>
+                <label>
+                  <span>Priority</span>
+                  <select name="priority">
+                    <option>Immediate</option>
+                    <option>Same day</option>
+                    <option>Within 24 hours</option>
+                    <option>Routine</option>
+                  </select>
+                </label>
+                <button class="primary-button small-button" type="button">Find Match</button>
+              </form>
+            </article>
 
-            <div class="first-aid-grid" id="first-aid-docs">
-              <article class="aid-case" id="case-bleeding">
-                <div class="aid-copy">
-                  <p class="module-kicker">Case 01</p>
-                  <h3>Cuts and heavy bleeding</h3>
-                  <p>
-                    Use this when a person has a deep cut, visible bleeding, or
-                    a wound that may not stop on its own.
-                  </p>
-                  <ul class="aid-steps">
-                    <li>Apply firm direct pressure with a clean cloth or bandage.</li>
-                    <li>Raise the injured area if possible and safe.</li>
-                    <li>Keep pressure on until bleeding slows or help arrives.</li>
-                    <li>Seek urgent care for severe bleeding or large wounds.</li>
-                  </ul>
-                </div>
-                <div class="video-slot" id="first-aid-videos">
-                  <span>Video Space</span>
-                  <strong>Bleeding control tutorial placeholder</strong>
-                </div>
-              </article>
+            <article class="console-card hover-tilt" id="telemedicine">
+              <p class="panel-kicker">04 Telemedicine</p>
+              <h3>Launch a remote consult with the right context</h3>
+              <form class="console-form">
+                <label>
+                  <span>Visit Type</span>
+                  <select name="visit-type">
+                    <option>Chat consultation</option>
+                    <option>Audio call</option>
+                    <option>Video call</option>
+                    <option>Medication follow-up</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Callback</span>
+                  <input type="tel" name="callback" placeholder="+254 7xx xxx xxx" />
+                </label>
+                <button class="primary-button small-button" type="button">Start Session</button>
+              </form>
+            </article>
+          </div>
+        </section>
 
-              <article class="aid-case" id="case-burns">
-                <div class="aid-copy">
-                  <p class="module-kicker">Case 02</p>
-                  <h3>Burns and scalds</h3>
-                  <p>
-                    For injuries caused by hot liquids, open flame, hot metal,
-                    or electrical contact.
-                  </p>
-                  <ul class="aid-steps">
-                    <li>Cool the burn under clean running water for at least 20 minutes.</li>
-                    <li>Remove tight items near the burn before swelling begins.</li>
-                    <li>Cover loosely with a clean non-stick dressing or cloth.</li>
-                    <li>Do not apply butter, oil, or ice directly to the burn.</li>
-                  </ul>
-                </div>
-                <div class="video-slot">
-                  <span>Video Space</span>
-                  <strong>Burn cooling and dressing walkthrough placeholder</strong>
-                </div>
-              </article>
+        <section class="faq-section reveal" id="network">
+          <div class="faq-copy">
+            <p class="eyebrow">Frequently Asked Questions</p>
+            <h2>Teams stay clear on what happens next.</h2>
+            <p>
+              The support layer keeps operators, facilities, and patients aligned
+              on cost, bookings, follow-up, alerts, and records without splitting
+              the case across disconnected tools.
+            </p>
 
-              <article class="aid-case" id="case-falls">
-                <div class="aid-copy">
-                  <p class="module-kicker">Case 03</p>
-                  <h3>Falls, sprains, and suspected fractures</h3>
-                  <p>
-                    Use this for slips, falls, twisted joints, or pain with
-                    swelling and limited movement.
-                  </p>
-                  <ul class="aid-steps">
-                    <li>Keep the injured person still and support the injured area.</li>
-                    <li>Apply a wrapped cold pack to reduce swelling.</li>
-                    <li>Do not force a limb back into place or ask them to walk.</li>
-                    <li>Get urgent care if there is severe pain, deformity, or head impact.</li>
-                  </ul>
-                </div>
-                <div class="video-slot">
-                  <span>Video Space</span>
-                  <strong>Fracture support and safe immobilization placeholder</strong>
-                </div>
-              </article>
-
-              <article class="aid-case" id="case-choking">
-                <div class="aid-copy">
-                  <p class="module-kicker">Case 04</p>
-                  <h3>Choking and blocked airway</h3>
-                  <p>
-                    For adults or children who cannot speak, cough, or breathe
-                    properly because something is blocking the airway.
-                  </p>
-                  <ul class="aid-steps">
-                    <li>Encourage coughing if the person can still breathe.</li>
-                    <li>Give back blows and abdominal thrusts when airway blockage is severe.</li>
-                    <li>Call emergency help immediately if breathing stops.</li>
-                    <li>Start CPR if the person becomes unresponsive and is not breathing.</li>
-                  </ul>
-                </div>
-                <div class="video-slot">
-                  <span>Video Space</span>
-                  <strong>Choking response demonstration placeholder</strong>
-                </div>
-              </article>
-
-              <article class="aid-case" id="case-road">
-                <div class="aid-copy">
-                  <p class="module-kicker">Case 05</p>
-                  <h3>Road traffic accidents and head injury</h3>
-                  <p>
-                    For crashes, collisions, or any situation where neck, spine,
-                    or head trauma may be present.
-                  </p>
-                  <ul class="aid-steps">
-                    <li>Call emergency services and keep the person still.</li>
-                    <li>Do not remove helmets unless breathing is blocked and you must intervene.</li>
-                    <li>Control visible bleeding with gentle direct pressure if safe.</li>
-                    <li>Monitor breathing and consciousness until trained help arrives.</li>
-                  </ul>
-                </div>
-                <div class="video-slot">
-                  <span>Video Space</span>
-                  <strong>Road accident first response placeholder</strong>
-                </div>
-              </article>
+            <div class="module-palette">
+              <a class="module-pill hover-tilt" id="cost" href="#top">Cost and Payments</a>
+              <a class="module-pill hover-tilt" id="appointments" href="#top">Appointments</a>
+              <a class="module-pill hover-tilt" id="follow-up" href="#top">Follow-Up</a>
+              <a class="module-pill hover-tilt" id="access" href="#top">Low-Bandwidth Access</a>
+              <a class="module-pill hover-tilt" id="notifications" href="#top">Notifications</a>
+              <a class="module-pill hover-tilt" id="ehr" href="#top">EHR and Prescriptions</a>
             </div>
           </div>
-        </article>
 
-        <article class="panel module-card matching-card reveal" id="matching">
-          <p class="module-kicker">03 Facility Matching</p>
-          <h2>Find the right hospital or clinician nearby</h2>
-          <p>
-            Match patients to capability, availability, distance, and required
-            level of care.
-          </p>
-          <a class="module-link" href="#top">Find Care Options</a>
-        </article>
+          <div class="faq-list">
+            <details class="faq-item hover-tilt">
+              <summary>How does the first aid log stay attached to the patient case?</summary>
+              <p>Every first response note stays in the same handoff trail used by triage, referrals, and telemedicine.</p>
+            </details>
 
-        <article class="panel module-card telemedicine-card reveal" id="telemedicine">
-          <p class="module-kicker">04 Telemedicine</p>
-          <h2>Start a virtual consultation when travel can wait</h2>
-          <p>
-            Give users a direct route into chat or video consultations for
-            non-emergency cases.
-          </p>
-          <a class="module-link" href="#top">Start Teleconsult</a>
-        </article>
+            <details class="faq-item hover-tilt">
+              <summary>When do patients move to telemedicine instead of physical referral?</summary>
+              <p>Stable non-emergency cases can be routed to chat, audio, or video consultation before travel is recommended.</p>
+            </details>
 
-        <article class="panel module-card cost-card reveal" id="cost">
-          <p class="module-kicker">05 Cost and Payments</p>
-          <h2>See cost expectations before committing to care</h2>
-          <p>
-            Estimate treatment expense, surface payment options, and keep
-            M-Pesa ready as part of the decision.
-          </p>
-          <a class="module-link" href="#top">Check Estimated Cost</a>
-        </article>
+            <details class="faq-item hover-tilt">
+              <summary>Can facility matching account for wait time and distance together?</summary>
+              <p>Yes. Matching considers urgency, distance, capability, and current availability to reduce unnecessary movement.</p>
+            </details>
 
-        <article class="panel module-card appointment-card reveal" id="appointments">
-          <p class="module-kicker">06 Appointments</p>
-          <h2>Book the next step without leaving the platform</h2>
-          <p>
-            Schedule in-person visits or specialist slots after triage and
-            matching are complete.
-          </p>
-          <a class="module-link" href="#top">Book Appointment</a>
-        </article>
-
-        <article class="panel module-card followup-card reveal" id="follow-up">
-          <p class="module-kicker">07 Follow-Up</p>
-          <h2>Keep recovery, reminders, and review visits in one place</h2>
-          <p>
-            Follow-up gets its own access space for check-ins, medication
-            reminders, care plans, and post-visit monitoring.
-          </p>
-          <a class="module-link" href="#top">Open Follow-Up Care</a>
-        </article>
-
-        <article class="panel module-card access-card reveal" id="access">
-          <p class="module-kicker">08 Low-Bandwidth Access</p>
-          <h2>Keep care available through USSD, SMS, and lightweight mobile flows</h2>
-          <p>
-            The platform supports rural and unstable-network journeys through
-            simple channels built for low connectivity and time-limited sessions.
-          </p>
-          <a class="module-link" href="#top">Open Access Channels</a>
-        </article>
-
-        <article class="panel module-card notification-card reveal" id="notifications">
-          <p class="module-kicker">09 Notifications</p>
-          <h2>Send reminders, booking updates, and urgent care alerts</h2>
-          <p>
-            SMS, push, and email keep patients, providers, and facilities aligned
-            across booking, consultation, referral, and follow-up.
-          </p>
-          <a class="module-link" href="#top">View Alerts and Reminders</a>
-        </article>
-
-        <article class="panel module-card records-card reveal" id="ehr">
-          <p class="module-kicker">10 EHR and Prescriptions</p>
-          <h2>Capture consultations, diagnoses, and treatment history</h2>
-          <p>
-            Maintain continuity across providers by keeping health records and
-            prescriptions connected.
-          </p>
-          <a class="module-link" href="#top">Open Patient Records</a>
-        </article>
-
-        <article class="panel module-card network-card reveal" id="network">
-          <p class="module-kicker">11 Care Network</p>
-          <h2>Labs, pharmacies, hospitals, and alerts stay synchronized</h2>
-          <p>
-            Integrations support referrals, diagnostics, prescription
-            fulfillment, and notifications across the full journey.
-          </p>
-          <a class="module-link" href="#top">View Connected Services</a>
-        </article>
+            <details class="faq-item hover-tilt">
+              <summary>Does the platform still work for low-connectivity regions?</summary>
+              <p>Web, mobile, USSD, and SMS flows all feed the same care record so the pathway stays consistent across access levels.</p>
+            </details>
+          </div>
+        </section>
       </main>
 
-      <section class="panel spaces-board reveal">
-        <div class="spaces-copy">
-          <p class="eyebrow">Core Access Spaces</p>
-          <h2>Every major product capability is presented as its own module</h2>
+      <footer class="site-footer reveal">
+        <div class="footer-brand">
+          <div class="brand brand-footer">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-copy">
+              <strong>CAREPATH</strong>
+              <span>FIRST RESPONSE</span>
+            </span>
+          </div>
+          <p>Healthcare response coordination for triage, first aid, facility matching, telemedicine, and connected follow-up.</p>
         </div>
 
-        <div class="spaces-list">
-          <a href="#ai-triage">AI triage</a>
-          <a href="#first-aid">First aid field and guidance</a>
-          <a href="#first-aid">First aid videos and docs</a>
-          <a href="#matching">Facility matching</a>
-          <a href="#telemedicine">Telemedicine</a>
-          <a href="#cost">Cost and M-Pesa</a>
-          <a href="#appointments">Appointments</a>
-          <a href="#follow-up">Follow-up care</a>
-          <a href="#access">USSD and SMS access</a>
-          <a href="#notifications">Notifications and reminders</a>
-          <a href="#ehr">EHR and prescriptions</a>
-          <a href="#network">Labs, pharmacies, notifications</a>
+        <div class="footer-links">
+          <div>
+            <p class="footer-title">Platform</p>
+            <a href="#overview">Overview</a>
+            <a href="#steps">Pathway</a>
+            <a href="#console">Console</a>
+          </div>
+          <div>
+            <p class="footer-title">Modules</p>
+            <a href="#ai-triage">AI Triage</a>
+            <a href="#first-aid">First Aid Hub</a>
+            <a href="#telemedicine">Telemedicine</a>
+          </div>
+          <div>
+            <p class="footer-title">Support</p>
+            <a href="#network">FAQ</a>
+            <a href="#cost">Payments</a>
+            <a href="#ehr">Records</a>
+          </div>
         </div>
-      </section>
-
+      </footer>
     </div>
 
     <script src="/src/app/main.js"></script>
