@@ -1,6 +1,31 @@
 const revealItems = document.querySelectorAll(".reveal");
 const tiltItems = document.querySelectorAll(".hover-tilt");
 const themeToggle = document.querySelector("#theme-toggle");
+
+function animateCount(el, target, duration = 1200) {
+  const start = performance.now();
+  const update = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * eased).toLocaleString();
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+function startTicker(el, base) {
+  let val = base;
+  setInterval(() => {
+    val += Math.random() < 0.5 ? 1 : -1;
+    val = Math.max(base - 8, Math.min(base + 8, val));
+    el.textContent = val.toLocaleString() + " active care handoffs";
+  }, 3200);
+}
+
+const navBadge = document.querySelector(".nav-badge");
+if (navBadge) {
+  navBadge.innerHTML = '<span class="live-dot" aria-hidden="true"></span>Emergency Live';
+}
 const themeStorageKey = "carepath-theme-v2";
 const supportsTilt =
   window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
@@ -53,10 +78,45 @@ const observer = new IntersectionObserver(
   }
 );
 
+const countTargets = [6, 22, 0, 45];
+const countEls = document.querySelectorAll(".count-grid strong");
+let countAnimated = false;
+
+const handoffEl = document.querySelector(".hero-panel h2");
+const handoffBase = 1248;
+
 revealItems.forEach((item, index) => {
   item.style.transitionDelay = `${index * 70}ms`;
   observer.observe(item);
 });
+
+const consoleSection = document.querySelector(".console-section");
+if (consoleSection) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !countAnimated) {
+        countAnimated = true;
+        countEls.forEach((el, i) => animateCount(el, countTargets[i]));
+        counterObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  counterObserver.observe(consoleSection);
+}
+
+const heroSection = document.querySelector(".hero-section");
+if (heroSection && handoffEl) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCount(handoffEl, handoffBase, 1600);
+        setTimeout(() => startTicker(handoffEl, handoffBase), 1700);
+        heroObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  heroObserver.observe(heroSection);
+}
 
 setTheme(getInitialTheme());
 
