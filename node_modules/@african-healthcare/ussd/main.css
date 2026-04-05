@@ -1,0 +1,246 @@
+:root {
+  --bg: #0b1020;
+  --surface: rgba(18, 24, 45, 0.96);
+  --surface-strong: rgba(10, 15, 29, 0.98);
+  --line: rgba(159, 177, 255, 0.12);
+  --line-strong: rgba(159, 177, 255, 0.24);
+  --text: #edf2ff;
+  --muted: #94a0c0;
+  --accent: #79a5ff;
+  --accent-soft: #d1ddff;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 16% 14%, rgba(121, 165, 255, 0.16), transparent 18%),
+    linear-gradient(180deg, #060913 0%, #0b1020 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.ussd-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px 36px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-soft);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-header h1,
+.info-card h2 {
+  margin: 0;
+  font-family: "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+}
+
+.dial-badge {
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 700;
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 20px;
+}
+
+.device-shell,
+.info-card {
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(18, 24, 45, 0.96), rgba(10, 15, 29, 0.98)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.device-shell {
+  padding: 18px;
+}
+
+.device-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.ussd-screen {
+  min-height: 26rem;
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(2, 6, 15, 0.86);
+}
+
+.screen-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+#ussd-display {
+  margin: 16px 0 0;
+  white-space: pre-wrap;
+  font-family: "Lucida Console", "Courier New", monospace;
+  line-height: 1.55;
+  color: #dcf7d7;
+}
+
+.entry-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.entry-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.entry-form label span {
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.entry-form input {
+  min-height: 3rem;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.entry-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(121, 165, 255, 0.14);
+}
+
+.primary-button,
+.ghost-button {
+  min-height: 3rem;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  border: 0;
+  color: #f6f9ff;
+  background: linear-gradient(135deg, #7ca6ff, #5068ff);
+}
+
+.ghost-button {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.keypad button {
+  min-height: 3.3rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.info-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.info-card {
+  padding: 18px;
+}
+
+.info-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.info-card li,
+.info-card p,
+#session-summary p {
+  line-height: 1.7;
+}
+
+#session-summary p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+#session-summary strong {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .simulator-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-header,
+  .entry-form,
+  .control-row {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-form,
+  .control-row {
+    display: grid;
+  }
+}

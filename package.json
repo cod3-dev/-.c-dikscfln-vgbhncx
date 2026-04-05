@@ -6,7 +6,9 @@
     "dev": "npm run dev --workspaces --if-present",
     "dev:backend": "npm run dev --workspace @african-healthcare/api-gateway --workspace @african-healthcare/triage-service --workspace @african-healthcare/facility-matching-service --workspace @african-healthcare/cost-estimation-service --workspace @african-healthcare/telemedicine-service --workspace @african-healthcare/ehr-service --workspace @african-healthcare/notification-service --workspace @african-healthcare/appointment-service",
     "dev:frontend": "npm run dev --workspace @african-healthcare/web",
-    "dev:web": "npm run dev --workspace @african-healthcare/web"
+    "dev:web": "npm run dev --workspace @african-healthcare/web",
+    "dev:mobile": "npm run dev --workspace @african-healthcare/mobile",
+    "dev:ussd": "npm run dev --workspace @african-healthcare/ussd"
   },
   "workspaces": [
     "backend/gateway/api-gateway",

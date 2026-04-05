@@ -4,6 +4,25 @@
 Project is in the **frontend-first phase**. The npm monorepo is bootstrapped and the web frontend (`frontend/web`) is the only package with real runtime code. All backend services and the API gateway have `package.json` stubs only — no source code yet.
 
 ## What Was Just Done
+- Added lively animations and interactivity to `frontend/web`:
+  - **CSS keyframe animations** in `src/styles/main.css`:
+    - Orbital globe floats (up/down loop)
+    - Orbital rings spin in opposite directions
+    - Orbital glow pulses
+    - Brand mark heartbeat pulse
+    - Ambient background blobs drift
+    - Hero tags bob at offset timings
+    - Progress bars animate in on scroll reveal
+    - Console orb pulses
+    - All animations gated behind `prefers-reduced-motion` media query
+  - **JS enhancements** in `src/app/main.js`:
+    - `animateCount()` — eased counter animation utility
+    - `startTicker()` — live ±1 drift ticker for hero handoff number
+    - Hero panel "active care handoffs" counts up from 0 on load, then ticks live
+    - Console stat counters (06, 22, 0, 45) count up when scrolled into view
+    - "Emergency Live" nav badge gets a blinking green dot injected on load
+
+## Previous Work
 - npm workspaces monorepo configured at root (`package.json`) covering all backend services + frontend packages
 - `frontend/web` fully implemented: vanilla HTML/CSS/JS static site served by a custom Node.js HTTP server (`server.js`)
   - Brand name confirmed: **Afya CarePath**

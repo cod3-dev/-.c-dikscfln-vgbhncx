@@ -3,6 +3,6 @@ const { createCarePathServer } = require("../shared/createCarePathServer");
 
 createCarePathServer({
   rootDir: __dirname,
-  defaultPort: 3000,
-  appLabel: "web"
+  defaultPort: 3001,
+  appLabel: "mobile"
 });

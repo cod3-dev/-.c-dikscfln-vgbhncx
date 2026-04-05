@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarePath USSD</title>
+    <meta
+      name="description"
+      content="CarePath USSD simulator for triage, facility matching, appointment booking, telemedicine, and alerts."
+    />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="ussd-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">CarePath USSD</p>
+          <h1>Feature phone care simulator</h1>
+        </div>
+        <div class="dial-badge">*384*22#</div>
+      </header>
+
+      <main class="simulator-grid">
+        <section class="device-shell">
+          <div class="device-top">
+            <span>Safenet</span>
+            <span>3:06 AM</span>
+          </div>
+
+          <div class="ussd-screen">
+            <div class="screen-head">
+              <span id="ussd-status">CON</span>
+              <span>Session 180s</span>
+            </div>
+            <pre id="ussd-display"></pre>
+          </div>
+
+          <form class="entry-form" id="ussd-form">
+            <label>
+              <span>Reply</span>
+              <input id="ussd-input" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter choice" />
+            </label>
+            <button class="primary-button" type="submit">Send</button>
+          </form>
+
+          <div class="keypad">
+            <button type="button" data-key="1">1</button>
+            <button type="button" data-key="2">2</button>
+            <button type="button" data-key="3">3</button>
+            <button type="button" data-key="4">4</button>
+            <button type="button" data-key="5">5</button>
+            <button type="button" data-key="6">6</button>
+            <button type="button" data-key="7">7</button>
+            <button type="button" data-key="8">8</button>
+            <button type="button" data-key="9">9</button>
+            <button type="button" data-key="*">*</button>
+            <button type="button" data-key="0">0</button>
+            <button type="button" data-key="#">#</button>
+          </div>
+
+          <div class="control-row">
+            <button class="ghost-button" id="back-button" type="button">Back</button>
+            <button class="ghost-button" id="restart-button" type="button">Restart</button>
+          </div>
+        </section>
+
+        <aside class="info-panel">
+          <article class="info-card">
+            <p class="eyebrow">Flow Coverage</p>
+            <h2>Functional channels</h2>
+            <ul>
+              <li>Symptom triage</li>
+              <li>Facility matching</li>
+              <li>Appointment booking</li>
+              <li>Telemedicine queue</li>
+              <li>Recent alerts</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <p class="eyebrow">Session Data</p>
+            <div id="session-summary"></div>
+          </article>
+
+          <article class="info-card">
+            <p class="eyebrow">How To Use</p>
+            <p>Use the keypad or type into the reply field. The simulator supports back and restart so you can walk the full USSD flow.</p>
+          </article>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/templates/messages.js"></script>
+    <script src="/flows/session.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

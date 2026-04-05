@@ -7,8 +7,8 @@
 - `frontend/web` — fully implemented static site (Afya CarePath brand)
   - Custom Node.js HTTP server (`server.js`) serving on configurable `PORT` (default 3000)
   - `index.html` — full landing page: hero, services, patient journey, channels, network, CTA
-  - `src/app/main.js` — IntersectionObserver scroll-reveal animations
-  - `src/styles/main.css` — complete dark-green design system with responsive breakpoints
+  - `src/app/main.js` — IntersectionObserver scroll-reveal, animated counters, live handoff ticker, blinking live dot
+  - `src/styles/main.css` — complete dark/light design system, responsive breakpoints, CSS keyframe animations (float, pulse, heartbeat, orbit-spin, ambient-drift, tag-bob, bar-fill, dot-blink)
 - Memory Bank initialized and synced to workspace
 
 ## What's Pending (All Implementation)
@@ -37,6 +37,8 @@
 
 ### Frontend
 - [x] `frontend/web/` — static landing site live (Afya CarePath, vanilla HTML/CSS/JS + Node server)
+- [x] `frontend/web/src/styles/main.css` — CSS keyframe animations (float, orbit-spin, pulse-glow, heartbeat, ambient-drift, tag-bob, bar-fill, dot-blink); all gated by `prefers-reduced-motion`
+- [x] `frontend/web/src/app/main.js` — animated counters, live handoff ticker, blinking live dot on nav badge
 - [ ] `frontend/web/` — wire to real backend APIs (currently all static placeholder content)
 - [ ] `frontend/shared/design-system/` — component library
 - [ ] `frontend/shared/api-client/` — typed API client
