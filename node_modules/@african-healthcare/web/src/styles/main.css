@@ -628,7 +628,7 @@ body.dark-mode .hero-visual {
 .steps-section,
 .console-section { padding: 30px; }
 .section-heading { max-width: 44rem; margin-bottom: 20px; }
-.steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
 .step-card { min-height: 14rem; padding: 20px; }
 
 .step-icon {

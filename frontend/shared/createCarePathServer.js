@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 
 const mimeTypes = {
@@ -63,6 +64,30 @@ function loadDotEnv(projectRoot) {
 
     process.env[key] = value;
   });
+}
+
+function proxyToApiGateway(request, response, gatewayUrl) {
+  const targetUrl = new URL(request.url, gatewayUrl);
+  const proxyRequest = http.request(
+    targetUrl,
+    {
+      method: request.method,
+      headers: { ...request.headers, host: targetUrl.host }
+    },
+    (proxyResponse) => {
+      response.writeHead(proxyResponse.statusCode || 502, proxyResponse.headers);
+      proxyResponse.pipe(response);
+    }
+  );
+
+  proxyRequest.on("error", () => {
+    sendJson(response, 502, {
+      error: "bad_gateway",
+      message: "Unable to reach the API gateway."
+    });
+  });
+
+  request.pipe(proxyRequest);
 }
 
 function sendJson(response, statusCode, payload) {
@@ -268,6 +293,7 @@ function createCarePathServer({ rootDir, defaultPort, appLabel }) {
   const projectRoot = path.resolve(rootDir, "..", "..");
 
   loadDotEnv(projectRoot);
+  const apiGatewayUrl = process.env.API_GATEWAY_URL || "http://127.0.0.1:4000";
 
   const server = http.createServer(async (request, response) => {
     const requestUrl = new URL(request.url, "http://localhost");
@@ -278,27 +304,7 @@ function createCarePathServer({ rootDir, defaultPort, appLabel }) {
         return;
       }
 
-      try {
-        const payload = await readJsonBody(request);
-        const messages = sanitizeMessages(payload.messages);
-        const attachments = sanitizeAttachments(payload.attachments);
-
-        if (!messages.length || messages[messages.length - 1].role !== "user") {
-          sendJson(response, 400, {
-            error: "invalid_request",
-            message: "The triage request must include at least one user message."
-          });
-          return;
-        }
-
-        const triageResponse = await createTriageReply({ messages, attachments });
-        sendJson(response, triageResponse.status, triageResponse.body);
-      } catch (error) {
-        sendJson(response, 500, {
-          error: "triage_server_error",
-          message: error.message || "Unexpected triage server error."
-        });
-      }
+      proxyToApiGateway(request, response, apiGatewayUrl);
       return;
     }
 
@@ -315,9 +321,26 @@ function createCarePathServer({ rootDir, defaultPort, appLabel }) {
     sendFile(filePath, response);
   });
 
-  server.listen(port, () => {
-    console.log(`African Healthcare ${appLabel} app running at http://localhost:${port}`);
+  const host = process.env.HOST || "0.0.0.0";
+  const networkAddress = getLocalNetworkAddress();
+  const publicUrl = networkAddress ? `http://${networkAddress}:${port}` : `http://${host}:${port}`;
+
+  server.listen(port, host, () => {
+    console.log(`African Healthcare ${appLabel} app running at ${publicUrl}`);
+    console.log(`Local access: http://localhost:${port}`);
   });
+}
+
+function getLocalNetworkAddress() {
+  const nets = os.networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      if (net.family === "IPv4" && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return null;
 }
 
 module.exports = { createCarePathServer };

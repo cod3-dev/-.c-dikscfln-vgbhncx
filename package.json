@@ -8,7 +8,8 @@
     "dev:frontend": "npm run dev --workspace @african-healthcare/web",
     "dev:web": "npm run dev --workspace @african-healthcare/web",
     "dev:mobile": "npm run dev --workspace @african-healthcare/mobile",
-    "dev:ussd": "npm run dev --workspace @african-healthcare/ussd"
+    "dev:ussd": "npm run dev --workspace @african-healthcare/ussd",
+    "run-all": "run-all.bat"
   },
   "workspaces": [
     "backend/gateway/api-gateway",
