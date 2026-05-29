@@ -16,7 +16,10 @@
     "backend/services/*",
     "frontend/web",
     "frontend/mobile",
-    "frontend/ussd"
+    "frontend/ussd",
+    "frontend/shared/design-system",
+    "frontend/shared/api-client",
+    "frontend/shared/state"
   ],
   "dependencies": {
     "@supabase/supabase-js": "^2.101.1"

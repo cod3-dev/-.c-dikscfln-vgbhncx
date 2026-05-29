@@ -1,0 +1,11 @@
+{
+  "name": "@african-healthcare/design-system",
+  "version": "0.1.0",
+  "description": "Afya CarePath shared design system",
+  "main": "index.js",
+  "type": "module",
+  "files": [
+    "index.js",
+    "components.css"
+  ]
+}
