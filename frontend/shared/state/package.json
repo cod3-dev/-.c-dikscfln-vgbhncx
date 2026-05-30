@@ -1,0 +1,7 @@
+{
+  "name": "@african-healthcare/state",
+  "version": "0.1.0",
+  "description": "Afya CarePath global state management",
+  "main": "index.js",
+  "type": "module"
+}

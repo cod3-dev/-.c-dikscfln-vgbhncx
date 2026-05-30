@@ -137,8 +137,8 @@ select {
   width: 2.8rem;
   height: 2.8rem;
   border-radius: 18px;
-  background: linear-gradient(180deg, #ef5b55, #bd2f32);
-  box-shadow: 0 16px 28px rgba(189, 47, 50, 0.22);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent), linear-gradient(135deg, #df6a52, #a43931);
+  box-shadow: inset 0 -10px 18px rgba(96, 22, 19, 0.28), 0 16px 28px rgba(166, 61, 42, 0.22);
 }
 
 .brand-mark::before,
@@ -148,7 +148,7 @@ select {
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  background: #fff7f4;
+  background: rgba(255, 249, 244, 0.98);
 }
 
 .brand-mark::before {
@@ -1319,24 +1319,31 @@ body:not(.dark-mode) .site-header {
 
 .brand-mark {
   position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 36% 34%, rgba(255, 255, 255, 0.9), transparent 20%),
-    linear-gradient(180deg, #6d84ff, #3141b7);
-  box-shadow: 0 0 24px rgba(99, 124, 255, 0.28);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent), linear-gradient(135deg, #df6a52, #a43931);
+  box-shadow: inset 0 -10px 18px rgba(96, 22, 19, 0.28), 0 16px 28px rgba(166, 61, 42, 0.22);
 }
 
+.brand-mark::before,
 .brand-mark::after {
   content: "";
   position: absolute;
   inset: 50% auto auto 50%;
-  width: 0.55rem;
-  height: 0.55rem;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  background: rgba(255, 249, 244, 0.98);
+}
+
+.brand-mark::before {
+  width: 1.4rem;
+  height: 0.34rem;
+}
+
+.brand-mark::after {
+  width: 0.34rem;
+  height: 1.4rem;
 }
 
 .brand-copy {
