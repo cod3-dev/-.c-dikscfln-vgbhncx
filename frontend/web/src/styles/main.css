@@ -683,7 +683,6 @@ body.dark-mode .hero-visual {
 .console-card h3 { margin-top: 10px; font-size: 1.52rem; }
 .triage-chat-card { grid-column: 1 / -1; display: grid; gap: 16px; }
 .triage-chat-card.is-awake { border-color: var(--care-line); box-shadow: var(--shadow-focus); }
-#first-aid-console { grid-row: span 2; }
 .console-form,
 .first-aid-field-card { display: grid; gap: 14px; }
 .console-form { margin-top: 16px; }
@@ -718,17 +717,6 @@ body.dark-mode .hero-visual {
 
 .small-button { justify-self: start; min-height: 2.8rem; padding: 0 18px; cursor: pointer; }
 
-.protocols-board { display: grid; gap: 10px; max-height: 33rem; padding-right: 4px; overflow: auto; }
-.protocol-item { overflow: hidden; background: var(--overlay); }
-.protocol-item[open] { border-color: var(--care-line); box-shadow: inset 0 0 0 1px rgba(22, 124, 105, 0.08); }
-.protocol-item summary,
-.faq-item summary { cursor: pointer; list-style: none; }
-.protocol-item summary { padding: 14px 16px; font-weight: 700; line-height: 1.45; }
-.protocol-item summary::-webkit-details-marker,
-.faq-item summary::-webkit-details-marker { display: none; }
-.protocol-item ol { margin: 0; padding: 0 18px 0 36px; }
-.protocol-item li { margin-bottom: 8px; line-height: 1.58; }
-.protocol-video { margin: 14px 16px 16px; padding: 14px 16px; border-style: dashed; font-size: 0.9rem; line-height: 1.55; }
 
 .triage-chat-head {
   display: flex;
@@ -829,6 +817,7 @@ body.dark-mode .hero-visual {
 .faq-list { display: grid; gap: 12px; }
 .faq-item { padding: 16px 18px; }
 .faq-item summary { font-weight: 700; line-height: 1.5; }
+.faq-item summary::-webkit-details-marker { display: none; }
 .faq-item p { margin: 12px 0 0; line-height: 1.68; }
 
 .site-footer {

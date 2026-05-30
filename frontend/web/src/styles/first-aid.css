@@ -1,0 +1,155 @@
+/* First Aid Hub page styles */
+
+.fa-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 32px 36px;
+  flex-wrap: wrap;
+}
+
+.fa-hero-copy { max-width: 38rem; }
+.fa-hero-copy h1 {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.fa-back-link { align-self: flex-end; white-space: nowrap; }
+
+/* Case nav pill strip */
+.fa-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent 24%), var(--surface);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+}
+
+.fa-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.fa-nav-btn:hover,
+.fa-nav-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--care-line);
+  box-shadow: var(--shadow-focus);
+  color: var(--text);
+  outline: none;
+}
+
+.fa-nav-btn.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff7f1;
+  box-shadow: 0 8px 24px rgba(203, 90, 67, 0.22);
+}
+
+body.dark-mode .fa-nav-btn.is-active {
+  color: var(--bg-top);
+}
+
+/* Protocol panels */
+.fa-protocols {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+}
+
+.fa-protocol {
+  display: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.fa-protocol.is-active { display: grid; }
+
+.fa-protocol-copy { display: grid; gap: 16px; }
+
+.fa-protocol-copy h2 {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.fa-protocol-desc {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.fa-steps {
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+  display: grid;
+  gap: 12px;
+}
+
+.fa-steps li {
+  line-height: 1.68;
+  padding-left: 4px;
+}
+
+/* Empty video slot */
+.fa-video-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 22rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), transparent 30%), var(--surface-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.fa-video-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .fa-protocol.is-active { grid-template-columns: 1fr; }
+  .fa-video-slot { min-height: 16rem; }
+}
+
+@media (max-width: 680px) {
+  .fa-hero { padding: 24px; }
+  .fa-protocols { padding: 20px; }
+  .fa-back-link { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-nav-btn { transition: none; }
+}

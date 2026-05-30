@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "echo telemedicine-service scaffold ready - no runtime code yet"
+    "dev": "node server.js"
   }
 }

@@ -607,3 +607,201 @@ if (triageVideoInput) {
 }
 
 renderTriage();
+
+async function getFollowUpNotifications() {
+  try {
+    const res = await fetch("http://localhost:4003/api/notifications?status=unread", { method: "GET" });
+
+    if (!res.ok) return [];
+
+    const payload = await res.json().catch(() => ({}));
+    const notifications = Array.isArray(payload?.notifications) ? payload.notifications : [];
+
+    const followUpTypes = new Set([
+      "consultation.note.added",
+      "consultation.scheduled",
+      "appointment.requested",
+    ]);
+
+    return notifications.filter((n) => followUpTypes.has(n.type));
+  } catch (e) {
+    return [];
+  }
+}
+
+async function seedDemoEvents() {
+  // 1. Create an appointment via telemedicine-service (fires appointment.requested notification)
+  const apptRes = await fetch("http://localhost:4002/api/telemedicine/appointments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ patientId: "patient-1", requestedSpecialty: "General Medicine", symptoms: "Follow-up check" }),
+  }).catch(() => null);
+
+  if (apptRes && apptRes.ok) {
+    const appt = await apptRes.json().catch(() => null);
+    if (appt?.id) {
+      // 2. Schedule a consultation (fires consultation.scheduled notification)
+      const consultRes = await fetch("http://localhost:4002/api/telemedicine/consultations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ appointmentId: appt.id, mode: "video", clinicianId: "clinician-1" }),
+      }).catch(() => null);
+
+      if (consultRes && consultRes.ok) {
+        const consult = await consultRes.json().catch(() => null);
+        if (consult?.id) {
+          // 3. Add a clinician note (fires consultation.note.added notification)
+          await fetch(`http://localhost:4002/api/telemedicine/consultations/${consult.id}/notes`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: "Patient stable, follow-up in 48 hours.", authorRole: "clinician", authorId: "clinician-1" }),
+          }).catch(() => null);
+        }
+      }
+    }
+  } else {
+    // telemedicine unreachable — fall back to direct seed on notification-service
+    await fetch("http://localhost:4003/api/notifications/seed", { method: "POST" }).catch(() => null);
+  }
+}
+
+async function markNotificationRead(id) {
+  await fetch(`http://localhost:4003/api/notifications/${id}/read`, { method: "PATCH" }).catch(() => null);
+}
+
+function ensureFollowUpPanel() {
+  let panel = document.querySelector("#follow-up-sidepanel");
+  if (panel) return panel;
+
+  panel = document.createElement("aside");
+  panel.id = "follow-up-sidepanel";
+  panel.setAttribute("aria-hidden", "true");
+  panel.innerHTML = `
+    <div class="follow-up-panel-inner">
+      <div class="follow-up-panel-head">
+        <div>
+          <p class="panel-kicker">Follow-Up</p>
+          <h3 style="margin: 0;">Care follow-ups</h3>
+        </div>
+        <button type="button" class="ghost-button small-button" id="follow-up-close" aria-label="Close follow-up panel">Close</button>
+      </div>
+      <div class="follow-up-panel-body" id="follow-up-panel-body"></div>
+    </div>
+  `;
+  document.body.appendChild(panel);
+
+  const style = document.createElement("style");
+  style.textContent = `
+    #follow-up-sidepanel{
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 420px;
+      height: 100vh;
+      background: rgba(15, 18, 26, 0.98);
+      color: #fff;
+      border-left: 1px solid rgba(255,255,255,0.12);
+      z-index: 9999;
+      transition: right 180ms ease;
+      overflow: auto;
+      padding: 16px;
+    }
+    body.dark-mode #follow-up-sidepanel{ background: rgba(12, 14, 20, 0.98); }
+    #follow-up-sidepanel.is-open{ right: 0; }
+    .follow-up-panel-inner{ display:flex; flex-direction:column; gap: 12px; }
+    .follow-up-panel-head{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; }
+    .follow-up-empty{ padding: 14px; border: 1px dashed rgba(255,255,255,0.25); border-radius: 12px; opacity: 0.9; }
+    .follow-up-item{ padding: 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; margin-bottom: 10px; background: rgba(255,255,255,0.04); }
+    .follow-up-item small{ opacity: 0.75; }
+    #follow-up-close{ white-space: nowrap; }
+  `;
+  document.head.appendChild(style);
+
+  const closeBtn = panel.querySelector("#follow-up-close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => closeFollowUpPanel());
+  }
+
+  return panel;
+}
+
+function openFollowUpPanel() {
+  const panel = ensureFollowUpPanel();
+  panel.classList.add("is-open");
+  panel.setAttribute("aria-hidden", "false");
+}
+
+function closeFollowUpPanel() {
+  const panel = document.querySelector("#follow-up-sidepanel");
+  if (!panel) return;
+  panel.classList.remove("is-open");
+  panel.setAttribute("aria-hidden", "true");
+}
+
+async function renderFollowUpPanel() {
+  const panel = ensureFollowUpPanel();
+  const bodyEl = panel.querySelector("#follow-up-panel-body");
+  if (!bodyEl) return;
+
+  openFollowUpPanel();
+  bodyEl.innerHTML = `<p style="opacity:0.8; margin:0;">Loading follow-ups…</p>`;
+
+  let followUps = await getFollowUpNotifications();
+
+  if (!followUps.length) {
+    bodyEl.innerHTML = `<p style="opacity:0.8; margin:0;">Seeding demo events…</p>`;
+    await seedDemoEvents();
+    followUps = await getFollowUpNotifications();
+  }
+
+  if (!followUps.length) {
+    bodyEl.innerHTML = `
+      <div class="follow-up-empty">
+        <strong>No follow-ups</strong>
+        <div style="height:6px"></div>
+        <div style="opacity:0.85;">Services may be offline. Start notification-service (port 4003) and telemedicine-service (port 4002) then reopen this panel.</div>
+      </div>
+    `;
+    return;
+  }
+
+  bodyEl.innerHTML = followUps
+    .slice(0, 20)
+    .map((n) => {
+      const title = n.title || "Follow-up";
+      const message = n.message || "";
+      const at = n.createdAt ? new Date(n.createdAt).toLocaleString() : "";
+      return `
+        <div class="follow-up-item" data-notification-id="${escapeHtml(n.id)}">
+          <strong>${escapeHtml(title)}</strong>
+          ${message ? `<div style="height:6px"></div><div>${escapeHtml(message)}</div>` : ""}
+          <div style="height:8px"></div>
+          <small>${escapeHtml(n.type || "")}${at ? ` · ${escapeHtml(at)}` : ""}</small>
+          <div style="height:8px"></div>
+          <button class="ghost-button small-button" type="button" data-mark-read="${escapeHtml(n.id)}">Mark read</button>
+        </div>
+      `;
+    })
+    .join("");
+
+  bodyEl.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-mark-read]");
+    if (!btn) return;
+    const id = btn.dataset.markRead;
+    await markNotificationRead(id);
+    const item = bodyEl.querySelector(`[data-notification-id="${id}"]`);
+    if (item) item.remove();
+    if (!bodyEl.querySelector(".follow-up-item")) {
+      bodyEl.innerHTML = `<div class="follow-up-empty"><strong>All caught up</strong></div>`;
+    }
+  }, { once: true });
+}
+
+const followUpLauncher = document.querySelector("#follow-up");
+if (followUpLauncher) {
+  followUpLauncher.addEventListener("click", (e) => {
+    e.preventDefault();
+    renderFollowUpPanel();
+  });
+}
+
