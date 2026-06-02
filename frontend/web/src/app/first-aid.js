@@ -53,6 +53,97 @@ if (navBadge) {
 const navBtns = document.querySelectorAll('.fa-nav-btn');
 const protocols = document.querySelectorAll('.fa-protocol');
 
+const youtubeParams = '?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1';
+
+const videosByProtocol = {
+  'fa-bleeding': {
+    protocolKey: 'bleeding',
+    youtubeId: 'L6jjyikFwmA',
+    iframeDataAttr: 'bleeding-video'
+  },
+  'fa-burn': {
+    protocolKey: 'burns',
+    youtubeId: 'TLr2qsEhpC8',
+    iframeDataAttr: 'burns-video'
+  },
+  'fa-fracture': {
+    protocolKey: 'fractures',
+    youtubeId: '2v8vlXgGXwE',
+    iframeDataAttr: 'fractures-video'
+  },
+  'fa-choking': {
+    protocolKey: 'choking',
+    youtubeId: 'HGBBu4zr8sM',
+    iframeDataAttr: 'choking-video'
+  },
+  'fa-road': {
+    protocolKey: 'road-accident',
+    youtubeId: 'uMAgxMFjz6A',
+    iframeDataAttr: 'road-video'
+  },
+  'fa-nosebleed': {
+    protocolKey: 'nosebleeds',
+    youtubeId: 'PmmhxW0vVXA',
+    iframeDataAttr: 'nosebleeds-video'
+  },
+  'fa-fainting': {
+    protocolKey: 'fainting',
+    youtubeId: 'ddHKwkMwNyI',
+    iframeDataAttr: 'fainting-video'
+  },
+  'fa-electric': {
+    protocolKey: 'electric-shock',
+    youtubeId: 'myq7NBgsMD0',
+    iframeDataAttr: 'electric-video'
+  },
+  'fa-poisoning': {
+    protocolKey: 'poisoning',
+    youtubeId: 'b2ieb8BZJuY',
+    iframeDataAttr: 'poisoning-video'
+  },
+  'fa-bites': {
+    protocolKey: 'animal-bites',
+    youtubeId: 'RSJzuk226RI',
+    iframeDataAttr: 'bites-video'
+  }
+};
+
+function injectVideoForProtocol(protocolId) {
+  const protocolEl = document.querySelector(`#${protocolId}`);
+  if (!protocolEl) return;
+
+  const config = videosByProtocol[protocolId];
+  if (!config) return;
+
+  if (protocolEl.querySelector(`iframe[data-${config.iframeDataAttr}="1"]`)) return;
+
+  const slot = protocolEl.querySelector('.fa-video-slot');
+  if (!slot) return;
+
+  const youtubeEmbed = `https://www.youtube.com/embed/${config.youtubeId}${youtubeParams}`;
+
+  slot.innerHTML = `
+    <div class="fa-video-wrap">
+      <div class="fa-video-aspect">
+        <iframe
+          data-${config.iframeDataAttr}="1"
+          src="${youtubeEmbed}"
+          title="${config.protocolKey} first aid walkthrough"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  `;
+}
+
+Object.keys(videosByProtocol).forEach((protocolId) => {
+  injectVideoForProtocol(protocolId);
+});
+
+
 navBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.target;
@@ -63,6 +154,12 @@ navBtns.forEach((btn) => {
     protocols.forEach((p) => {
       const isMatch = p.id === `fa-${target}`;
       p.classList.toggle('is-active', isMatch);
+
+      // If user navigates back to bleeding, ensure the player exists.
+      if (isMatch && p.id === 'fa-bleeding') {
+        ensureBleedingVideo();
+      }
     });
   });
 });
+
