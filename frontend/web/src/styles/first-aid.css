@@ -120,23 +120,41 @@ body.dark-mode .fa-nav-btn.is-active {
 /* Empty video slot */
 .fa-video-slot {
   position: relative;
-  display: grid;
-  place-items: center;
   min-height: 22rem;
   border: 1px dashed var(--line-strong);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(255,255,255,0.22), transparent 30%), var(--surface-strong);
   box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 
-.fa-video-label {
+/* Label shown when slot is empty */
+.fa-video-slot .fa-video-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
   opacity: 0.7;
+  pointer-events: none;
 }
+
+/* Any video or iframe injected into the slot fills it completely */
+.fa-video-slot video,
+.fa-video-slot iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  object-fit: cover;
+}
+
 
 /* Responsive */
 @media (max-width: 1000px) {
